@@ -40,7 +40,7 @@ class DetailTodoViewModel(application: Application)
     fun markTodoDone(uuid:Int) {
         launch {
             val db = buildDb(getApplication())
-            db.todoDao().markTodoDone(uuid)
+            db.todoDao().markTodoDone(1)
         }
     }
 

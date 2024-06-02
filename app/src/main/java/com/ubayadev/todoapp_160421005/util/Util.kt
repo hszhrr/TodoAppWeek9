@@ -16,6 +16,8 @@ val MIGRATION_1_2 = object : Migration(1, 2) {
 }
 
 fun buildDb(context: Context): TodoDatabase {
-    val db = Room.databaseBuilder(context,TodoDatabase::class.java, DB_NAME).build()
+    val db = Room.databaseBuilder(context,TodoDatabase::class.java, DB_NAME)
+        .addMigrations(MIGRATION_1_2)
+        .build()
     return db
 }
