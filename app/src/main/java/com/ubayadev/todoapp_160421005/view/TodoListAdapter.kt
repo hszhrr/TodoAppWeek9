@@ -28,7 +28,9 @@ class TodoListAdapter(val todoList:ArrayList<Todo>, val adapterOnClick : (Todo) 
                 compoundButton, b ->
             if(compoundButton.isPressed) {
                 adapterOnClick(todoList[position])
-                viewModel.markTodoDone(1)
+                if (todoList[position].isDone == 1) {
+                    holder.binding.checkTask.isChecked == true
+                }
             }
         }
 

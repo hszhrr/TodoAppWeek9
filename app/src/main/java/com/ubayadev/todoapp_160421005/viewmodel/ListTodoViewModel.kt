@@ -30,7 +30,6 @@ class ListTodoViewModel(application: Application)
             val db = TodoDatabase.buildDatabase(
                 getApplication()
             )
-
             todoLD.postValue(db.todoDao().selectAllTodo())
             loadingLD.postValue(false)
         }
@@ -40,8 +39,14 @@ class ListTodoViewModel(application: Application)
         launch {
             val db = buildDb(getApplication())
             db.todoDao().deleteTodo(todo)
-
             todoLD.postValue(db.todoDao().selectAllTodo())
+        }
+    }
+
+    fun markTodoDone(uuid:Int) {
+        launch {
+            val db = buildDb(getApplication())
+            db.todoDao().markTodoDone(1)
         }
     }
 

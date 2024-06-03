@@ -37,13 +37,6 @@ class DetailTodoViewModel(application: Application)
         }
     }
 
-    fun markTodoDone(uuid:Int) {
-        launch {
-            val db = buildDb(getApplication())
-            db.todoDao().markTodoDone(1)
-        }
-    }
-
     override val coroutineContext: CoroutineContext
         get() = job + Dispatchers.IO
 }
